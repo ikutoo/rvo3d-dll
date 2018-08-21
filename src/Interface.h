@@ -12,8 +12,8 @@ extern "C"
 	RVO_API void rvo_doStep();
 	RVO_API void rvo_destroy();
 
-	RVO_API void rvo_addAgent(vec3 position);
-	RVO_API void rvo_addAgentWithDetails(vec3 position, float neighborDist, size_t maxNeighbors, float timeHorizon, float radius, float maxSpeed);
+	RVO_API size_t rvo_addAgent(vec3 position);
+	RVO_API size_t rvo_addAgentWithDetails(vec3 position, float neighborDist, size_t maxNeighbors, float timeHorizon, float radius, float maxSpeed, vec3 velocity);
 	RVO_API void rvo_removeAgent(size_t agentNo);
 
 	RVO_API void rvo_setTimeStep(float timeStep);

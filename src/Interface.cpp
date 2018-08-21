@@ -22,6 +22,7 @@ RVO_API void rvo_init()
 
 RVO_API void rvo_doStep()
 {
+	if (g_pSimulator)
 	g_pSimulator->doStep();
 }
 
@@ -30,14 +31,14 @@ RVO_API void rvo_destroy()
 	if (g_pSimulator) { delete g_pSimulator; g_pSimulator = nullptr; }
 }
 
-RVO_API void rvo_addAgent(vec3 position)
+RVO_API size_t rvo_addAgent(vec3 position)
 {
-	g_pSimulator->addAgent(__vec2rvoVector(position));
+	return g_pSimulator->addAgent(__vec2rvoVector(position));
 }
 
-RVO_API void rvo_addAgentWithDetails(vec3 position, float neighborDist, size_t maxNeighbors, float timeHorizon, float radius, float maxSpeed)
+RVO_API size_t rvo_addAgentWithDetails(vec3 position, float neighborDist, size_t maxNeighbors, float timeHorizon, float radius, float maxSpeed, vec3 velocity)
 {
-	g_pSimulator->addAgent(__vec2rvoVector(position), neighborDist, maxNeighbors, timeHorizon, radius, maxSpeed);
+	return g_pSimulator->addAgent(__vec2rvoVector(position), neighborDist, maxNeighbors, timeHorizon, radius, maxSpeed, __vec2rvoVector(velocity));
 }
 
 RVO_API void rvo_removeAgent(size_t agentNo)

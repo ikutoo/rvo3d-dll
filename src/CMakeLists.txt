@@ -34,6 +34,7 @@ set(RVO_HEADERS
 	API.h
 	RVO.h
 	RVOSimulator.h
+	Interface.h
 	Vector3.h)
 
 set(RVO_SOURCES
@@ -42,9 +43,10 @@ set(RVO_SOURCES
 	Definitions.h
 	KdTree.cpp
 	KdTree.h
-	RVOSimulator.cpp)
+	RVOSimulator.cpp
+	Interface.cpp)
 
-add_library(RVO ${RVO_HEADERS} ${RVO_SOURCES})
+add_library(RVO3D ${RVO_HEADERS} ${RVO_SOURCES})
 
 install(FILES ${RVO_HEADERS} DESTINATION include)
-install(TARGETS RVO DESTINATION lib)
+install(TARGETS RVO3D DESTINATION lib)
